@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Tau Nuwa</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            color: #E2E8F0; /* Light gray text for elegance */
+        }
+
+        .undangan-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background-color: #0d0d0d;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+            filter: brightness(0.7) grayscale(0.3);
+            animation: backgroundFade 20s ease-in-out infinite;
+        }
+        
+        @keyframes backgroundFade {
+            0% { background-image: url('fot1.jpg'); }
+            25% { background-image: url('fot2.jpg'); }
+            50% { background-image: url('fot2.jpg'); }
+            75% { background-image: url('fot1.jpg'); }
+            100% { background-image: url('fot1.jpg'); }
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+        }
+        
+        .slide.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .button-nav {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        
+        .title {
+            font-family: 'Playfair Display', serif;
+            color: #c4a1ff; /* Light purple */
+        }
+
+        .text-heading {
+            font-family: 'Playfair Display', serif;
+            color: #93c5fd; /* Light blue */
+        }
+        
+        /* Specific animations for a more elegant feel */
+        .slide.active .fade-in-up {
+            animation: fadeInUp 1.2s ease-in-out;
+        }
+        .slide.active .fade-in {
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center">
+
+    <div class="undangan-container max-w-lg mx-auto shadow-xl rounded-xl">
+        <div class="background-image"></div>
+        
+        <!-- Slide 1: Opening -->
+        <div id="slide-1" class="slide active">
+            <h1 class="text-5xl font-extrabold mb-4 fade-in title">Undangan Para Bhada Tau Nuwa</h1>
+            <p class="text-xl mb-6 fade-in-up">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-3 rounded-full shadow-lg cursor-pointer transition-transform duration-300 hover:scale-105 fade-in-up" onclick="showSlide(2)">
+                <span class="text-white font-semibold">Buka Undangan</span>
+            </div>
+        </div>
+
+        <!-- Slide 2: Main Content -->
+        <div id="slide-2" class="slide">
+            <h2 class="text-4xl font-bold mb-6 text-heading fade-in-up">Kami Mengundang Anda</h2>
+            <p class="text-lg mb-4 text-center fade-in-up">Merupakan satu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu, Om/Tanta, sahabat, kenalan, dan saudara/i semuanya berkenan hadir untuk memberikan dukungan kepada kami.</p>
+            <p class="text-2xl font-bold mt-8 fade-in-up text-purple-400">RD. Petrus Sina</p>
+            <p class="text-2xl font-bold fade-in-up text-purple-400">Falens Raga Sina</p>
+            <p class="text-2xl font-bold fade-in-up text-purple-400">Florianus Peja Sina</p>
+            <p class="text-2xl font-bold fade-in-up text-purple-400">Romanus Sina</p>
+            <p class="text-2xl font-bold fade-in-up text-purple-400">Servas Sina</p>
+        </div>
+
+        <!-- Slide 3: Time & Place -->
+        <div id="slide-3" class="slide">
+            <h2 class="text-4xl font-bold mb-6 text-heading fade-in-up">Waktu dan Lokasi</h2>
+            <div class="space-y-4 text-center">
+                <p class="text-lg fade-in-up">Acara akan dilaksanakan pada:</p>
+                <div class="mt-8 p-6 bg-gray-900 rounded-xl shadow-inner border border-blue-400 fade-in-up">
+                    <p class="text-3xl font-bold text-blue-300">Sabtu</p>
+                    <p class="text-3xl font-bold text-blue-300">13 September 2025</p>
+                    <p class="text-2xl font-bold mt-4">Pukul 11.00 WITA - Selesai</p>
+                </div>
+                <div class="mt-8 p-6 bg-gray-900 rounded-xl shadow-inner border border-purple-400 fade-in-up">
+                    <p class="text-xl font-bold text-purple-300 mb-2">Bertempat di:</p>
+                    <p class="text-2xl font-bold leading-relaxed">Desa Tengatiba, Nunubina, Lorong Gereja Kristus Raja, Rumah Bapak Fransiskus Sina</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Map -->
+        <div id="slide-4" class="slide">
+            <h2 class="text-4xl font-bold mb-6 text-heading fade-in-up">Petunjuk Lokasi</h2>
+            <p class="text-lg mb-4 text-center fade-in-up">Silakan gunakan peta di bawah ini untuk panduan menuju lokasi acara.</p>
+            <div class="w-full h-80 rounded-xl shadow-lg overflow-hidden fade-in-up">
+                <iframe
+                    class="w-full h-full border-0"
+                    src="https://maps.google.com/maps?q=-8.658917,121.221861&z=15&output=embed"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Slide 5: Closing -->
+        <div id="slide-5" class="slide">
+            <h2 class="text-4xl font-bold mb-6 text-heading fade-in-up">Terima Kasih</h2>
+            <p class="text-lg mb-4 text-center fade-in-up">Atas kehadiran dan dukungan Bapak/Ibu/Saudara/i, kami sampaikan terima kasih yang sebesar-besarnya.</p>
+            <p class="text-2xl font-bold mt-8 fade-in-up text-purple-400">Hormat Kami,</p>
+            <p class="text-xl font-semibold fade-in-up text-blue-400">Keluarga Besar Sina</p>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div id="nav-buttons" class="button-nav hidden">
+            <button id="prev-btn" class="bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold px-6 py-2 rounded-full shadow-lg mr-4 transition-transform duration-300 hover:scale-105" onclick="prevSlide()">Kembali</button>
+            <button id="next-btn" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold px-6 py-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-105" onclick="nextSlide()">Berikutnya</button>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+        const slides = document.querySelectorAll('.slide');
+        const navButtons = document.getElementById('nav-buttons');
+        
+        function showSlide(n) {
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            const targetSlide = document.getElementById(`slide-${n}`);
+            if (targetSlide) {
+                targetSlide.classList.add('active');
+                currentSlide = n;
+            }
+
+            if (currentSlide === 1) {
+                navButtons.classList.add('hidden');
+            } else {
+                navButtons.classList.remove('hidden');
+            }
+            
+            const nextBtn = document.getElementById('next-btn');
+            if (currentSlide === totalSlides) {
+                nextBtn.textContent = 'Selesai';
+            } else {
+                nextBtn.textContent = 'Berikutnya';
+            }
+        }
+        
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            }
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        window.addEventListener('load', () => {
+            const params = new URLSearchParams(window.location.search);
+            const slideParam = parseInt(params.get('slide'));
+            if (slideParam && slideParam > 0 && slideParam <= totalSlides) {
+                showSlide(slideParam);
+            } else {
+                showSlide(1);
+            }
+        });
+    </script>
+</body>
+</html>
